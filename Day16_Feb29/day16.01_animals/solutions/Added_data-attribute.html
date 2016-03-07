@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animals Array</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="jumbotron">
+		<div class="container">
+			<h1 class="text-center">ANIMALS, ANIMALS, ANIMALS!!!!</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Animal Buttons!!!</h3>
+				</div>
+				<div class="panel-body animal-panel">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<!-- Jquery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+</body>
+
+<script>
+	// Animals Array
+	var animals = ["ZEBRA", "MONGOOSE", "CHIMPANZEE", "HYENA"]
+
+	// Loop through array
+	for (var i = 0; i < animals.length; i++) {
+		
+		// Creates the buttons
+		var animalButton = $("<button id="+animals[i]+">"+animals[i]+"</button>");
+
+		// Add a new attribute to the button 
+		animalButton.attr("data-type", animals[i]);
+
+		// Adds the buttons to the screen.
+		$(".animal-panel").append(animalButton);
+
+	}
+
+
+</script>
+</html>

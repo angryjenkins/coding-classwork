@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+<div id="show-number"></div>
+<br>
+<button id="stop">Stop</button>
+<button id="resume">Resume</button>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+  <script>
+    var number = 100;
+    $('#stop').click(stop);
+    $('#resume').click(run);
+
+    function run(){
+      counter = setInterval(increment, 1000);
+    }
+    
+    function increment(){
+      number--
+      document.getElementById('show-number').innerHTML = ('<h2>' + number + '</h2>')
+      if (number === 0){
+        stop();
+        alert('Time Up!')
+      }
+    }
+
+    function stop(){
+      clearInterval(counter);
+    }
+
+  run();
+  </script>
+</body>
+</html>

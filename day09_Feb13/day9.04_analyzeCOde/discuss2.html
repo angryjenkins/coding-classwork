@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>exercise one</title>
+</head>
+<body>
+<script type="text/javascript">
+
+
+var owens = {
+    bro : true,
+    doYouLift : true,
+    gramsOfproteinIntake : 240,
+    catchPhraseOne : "I'm so broke right now because I just bought those new subwoofers.",
+    catchPhraseTwo : "You're taking my picture? Hang on. Let me put on my sunglasses.",
+    catchPhraseThree : "My fantasy football team is crushing it.",
+    catchPhraseFour : "You’re hot. What’s your name?",
+    sayAllCatchPhrases : function(){
+        alert(this.catchPhraseOne);
+        alert(this.catchPhraseTwo);
+        alert(this.catchPhraseThree);
+        alert(this.catchPhraseFour);
+    },
+    changeBroStatus: function(brostatus){
+        this.bro=brostatus;
+    },
+    upProteinIntake : function(){
+        this.gramsOfproteinIntake++;
+    },
+    injuredStopLifting : function(){
+        debugger;
+        this.doYouLift = false;
+        console.log(this.doYouLift);
+    }
+}
+
+//call the injuredStopLifting key (method)
+owens.injuredStopLifting();
+//call the upProteinIntake key (method)
+owens.upProteinIntake();
+console.log(owens.gramsOfproteinIntake);
+//call the sayAllCatchPhrases key (method)
+owens.sayAllCatchPhrases();
+//set owen's bro status to false
+owens.changeBroStatus(false);
+console.log(owens.bro);
+//show other owens
+</script>
+</body>
+</html>

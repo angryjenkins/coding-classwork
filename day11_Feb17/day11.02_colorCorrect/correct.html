@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Color Game</title>
+
+	<!-- Loaded jQuery -->
+	<script src="http://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+	
+	<!-- Setup the initial html  -->
+	<h1 id="1" style="border-style: solid; color: #FFDF00">Purple</h1>
+	<h1 id="2" style="color:green;">Black</h1>
+	<h1 id="3" style="color:red">Gold</h1>
+	<h1 id="4" style="color:blue">Cyan</h1>
+	<h1 id="5" style="color:purple">Green</h1>
+	<h1 id="6" style="color:black">Orchid</h1>
+	<h1 id="7" style="color:gray">Red</h1>
+	<h1 id="8" style="color:orange">Orange</h1>
+
+</body>
+<script>
+	
+	// Running jquery on the entire  document
+	$(document).ready(function(){
+
+		// Created the initial array of colors
+		var colors = ["#FFDF00", "green", "red", "blue", "purple", "black", "gray", "orange"];
+
+		// Actual words that are displayed 
+		var words = ["Purple", "Black", "Gold", "Cyan", "Green", "Orchid", "Red", "Orange"];
+
+		// Created a shuffle function that resorts the array randomly
+		var shuffle = function() {
+
+			// Re-sort the array of words
+			words.sort(function(){return 0.5 - Math.random()});
+			console.log(words);
+		}
+
+		// Replace words in the HTML with the reordered words
+		var wordDump = function() {
+
+			// Loop through the array of words and replace previous words with array words.
+			var id = "";
+			for (var i = 1; i < words.length; i++){
+
+				// Generates the id number by attaching the #sign 
+				id = "#" + i;
+
+				// Erased the existing HTML 
+				$(id).empty(words[i-1]);
+
+				// Adds HTML to the page 
+				$(id).append(words[i-1]);
+
+				$(id).click(function(){
+					alert("the id is" + i);
+				});
+			}
+		}
+
+		shuffle();
+		wordDump();
+
+	});
+
+	
+	
+
+</script>
+</html>

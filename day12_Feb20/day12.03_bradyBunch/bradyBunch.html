@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Brady Bunch</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <style>
+    body {
+        background-color: powderblue;
+    }
+    
+    .character {
+        width: 200px;
+        height: 160px;
+        float: left;
+    }
+    
+    .charName {
+        width: 110px;
+        height: 40px;
+        border-style: solid;
+        padding: 3px;
+        color: dimgray;
+        float: left;
+        margin: 1px;
+        font-size: 20px;
+    }
+    
+    .clear {
+        clear: left;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- divs where pictures will be appended. -->
+    <div id="slot-top-left"></div>
+    <div id="slot-top-mid"></div>
+    <div id="slot-top-right"></div>
+    <div class="clear"></div>
+    <div id="slot-mid-left"></div>
+    <div id="slot-mid-mid"></div>
+    <div id="slot-mid-right"></div>
+    <div class="clear"></div>
+    <div id="slot-bot-left"></div>
+    <div id="slot-bot-mid"></div>
+    <div id="slot-bot-right"></div>
+    <div class="clear"></div>
+    
+    <!-- contect to be added to the positional divs -->
+    <p class="charName" id="sister_big">sister big</p>
+    <p class="charName" id="mom">mom</p>
+    <p class="charName" id="brother_big">brother big</p>
+    <p class="charName" id="sister_small">sister small</p>
+    <p class="charName" id="logo">logo</p>
+    <p class="charName" id="brother_mid">brother mid</p>
+    <p class="charName" id="sister_mid">sister mid</p>
+    <p class="charName" id="dad">dad</p>
+    <p class="charName" id="brother_small">brother small</hp>
+
+    <script type="text/javascript">
+    var count = 0;
+
+    $(document).ready(function() {
+        //attributes of each brady bunch character. right now we're only keeping track of images.
+        var characters = {
+            'brother_big': {
+                imageUrl: "images/brother_big.png",
+            },
+            'brother_mid': {
+                imageUrl: "images/brother_mid.png"
+            },
+            'brother_small': {
+                imageUrl: "images/brother_small.png"
+            },
+            'dad': {
+                imageUrl: "images/dad.png"
+            },
+            'logo': {
+                imageUrl: "images/logo.png"
+            },
+            'mom': {
+                imageUrl: "images/mom.png"
+            },
+            'sister_big': {
+                imageUrl: "images/sister_big.png"
+            },
+            'sister_mid': {
+                imageUrl: "images/sister_mid.png"
+            },
+            'sister_small': {
+                imageUrl: "images/sister_small.png"
+            },
+        };
+        //this function renders the site.
+
+        var render = function(character, renderArea) {
+            //console.log("rendering img");
+            var charDiv = $("<div data-name='" + String(character) + "'>"); //will grab the div with data-name of letter push.
+            var charImage = $("<img alt='image' class='character'>").attr("src", character.imageUrl);
+            charDiv.append(charImage);
+            $("#"+renderArea).append(charDiv);
+        };
+
+        var positions = ["slot-top-left", "slot-top-mid", "slot-top-right", "slot-mid-left", "slot-mid-mid", "slot-mid-right", "slot-bot-left", "slot-bot-mid", "slot-bot-right"];
+        var chars = ["mom", "dad", "brother_big", "brother_mid", "brother_small", "sister_big", "sister_mid", "sister_small", "logo"];
+
+
+        //make click events for all nine divs in one loop.
+        for (var i = 0; i < chars.length; i++) {
+            $('#' + chars[i]).on('click', function() {
+                var name = ($(this)[0].id); //this because if we were reusing this, get id first time it shows in the code.
+                render(characters[name], positions[count]);
+                count++;
+            });
+        };
+
+    });
+    </script>
+</body>
+
+</html>

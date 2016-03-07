@@ -1,0 +1,56 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>3 arguments</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	var numsToAdd = [1,4,7];
+	var numsToMultiply = [2,4,8];
+	var me = 'Matt';
+	var areStrings = ['hello','Rutgers',me];
+	var notStrings = ['hello',335,me];
+	//add things in an array.
+	function addStuff(arr){
+		var sum = 0;
+
+		for (var i=0; i<arr.length; i++){
+		    sum = sum + arr[i];
+		}
+		return sum;
+	}
+
+	//multiply thigns in an array.
+	function multiplyStuff(arr){
+		var product = 1;
+
+		for (var i=0; i<arr.length; i++){
+		    product = product*arr[i];
+		}
+		return product;
+	}
+
+	//check if an array contains only strings.
+	
+	function checkIfStrings(arr){
+		var flag = 0;
+		for(var i=0;i<arr.length;i++){
+			if(typeof(arr[i])=="string"){
+				flag++;
+			}
+		}
+		if(flag==arr.length){
+			alert("all variables are strings!");
+		} else {
+			alert("all variables are NOT strings!");
+		}
+	}
+
+	console.log(addStuff(numsToAdd));
+	console.log(multiplyStuff(numsToMultiply));
+	console.log(checkIfStrings(notStrings));
+</script>
+	
+</body>
+</html>

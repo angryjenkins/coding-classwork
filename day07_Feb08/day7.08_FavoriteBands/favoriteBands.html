@@ -1,0 +1,24 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Favorite Bands</title>
+</head>
+<body>
+<script type="text/javascript">
+	function myFavoriteBands(){
+		var favBands = ["cream","heart","u2","metallica","anthrax"];
+
+		var userBand = prompt("What's your favorite band, loser?");
+		var userBandLowerCase = userBand.toLowerCase();
+
+		if(favBands.indexOf(userBandLowerCase) == -1){
+			alert("That band blows! You are so lame!");
+		}else{
+			alert("That band rules! I guess you're not such a loser after all, ...");
+		}
+	}
+	window.onLoad = myFavoriteBands();
+</script>
+	
+</body>
+</html>

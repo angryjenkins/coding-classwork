@@ -1,0 +1,43 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-size:24px;
+}
+
+img: {
+	margin: 0;
+}
+
+h1 {
+	color: white;
+	background-color: #727171;
+	margin: 0;
+	padding:48px 0;
+	text-align: center;
+}
+.container	{
+	padding: 0 48px;
+}
+
+.studentInfo {
+	float:left;
+	width:60%;
+	margin: 0;
+}
+.contactInfo {
+	float:right;
+	width:30%;
+	margin: 0;
+}
+
+.left {
+	width:25%;
+	margin: 0;
+	float: left;
+}
+
+.right	{
+	width: 75%;
+	margin: 0;
+	float: right;
+}

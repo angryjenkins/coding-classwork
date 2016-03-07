@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Giphy Example!</title>
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+
+</head>
+<body>
+
+<h1>We're playing with the Giphy API!!</h1>
+
+<div id="result"></div>
+	
+<script type="text/javascript">
+	var search = "trombone";
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=dc6zaTOxFJmzC"
+
+	$.ajax({url: queryURL, method: 'GET'})
+
+     // When the ajax is done 
+	 .done(function(response) {
+
+	 	// log the response  
+	    console.log(response);
+
+	    // Switch Movie 1 title to...
+     	$("#result").html("<img src='" + response.data[0].images.downsized_large.url + "' alt='giphy image' />");
+	}); 
+
+</script>
+</body>
+</html>

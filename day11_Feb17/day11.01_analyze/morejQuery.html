@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Click Events</title>
+ 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  </head>
+  <body style="">
+      
+      <div id="hi">Say HI!</div>
+	  <div id="bye">Say BYE!</div>
+	  <div id="wait">Wait a minute!</div>
+	  <div id="doubletime">let's GO!</div>
+
+      <script type="text/javascript">
+		//Jquery Click Events
+
+		//Example ONE:
+		$('#hi').on('click', function() {
+			alert('HI!!!!');
+		});
+
+		$('#wait').on('click',function(){
+			alert('Patience!');
+		})
+
+		var hurry = function(){
+			alert('DOUBLE TIME!');
+		}
+
+		$('#doubletime').on('click',hurry);
+
+		//Ask the student these questions...
+		/*		
+			1. What happenes when the page load?
+			2. Why doesn't the page just alert 'HI!!!!' right away on page load?
+			3. What is that function that alerts 'HI!!!' anyway?
+		
+		Answer:
+			1. jQuery attaches an event listener to the id 'hi' and passes it an anonymous function.
+			2. The alert is inside of a function that's inside of the click event but not executed right away.
+			3. The function inside of the the event listener is an anonymous function, that only get's executed when the event is triggered.
+		*/
+
+		//Example TWO:
+		var bye = function() {
+			alert('BYE!!!!!')
+		};
+		$('#bye').on('click', bye);
+
+		//Ask the student these questions...
+		/*		
+			1. What happenes when the page load?
+			2. What happenes when I click on 'Say BYE!' in the HTML?
+			3. Why does it work?
+		
+		Answer:
+			1. jQuery attaches an event listener to the id 'bye' and passes it the 'bye' function.
+			2. When the div with the id 'Say BYE!' is clicked it alerts 'BYE!!!!!'
+			3. The function 'bye' is created in the code, and jQuery click event function takes the function 'bye', and stores it inside it. When triggered the click event function will execute 'bye' just like an anonymouse function like the example above.
+			This is called a callback function.
+		*/
+
+		//Example THREE:
+		var doStuff = function(input) {
+			alert(input);
+		};
+		var doSomething = function(callback) {
+			var wurd = "Yo, Yo, Yo!!!";
+			callback(wurd);
+		};
+		doSomething(doStuff);
+
+		//Ask the student these questions...
+		/*		
+			1. What happenes when the page load?
+			2. What is going on, describe each function step by step?
+			3. Why does it work?
+		
+		Answer:
+			1. Alerts "Yo, Yo, YO!!!.
+			2. The function 'doSomething' is using 'doStuff' as a callback function.
+				a. 'doStuff' and 'doSomething' is created they both takes in inputs.
+				b. 'doStuff' takes and input of a string.
+				c. 'doSomething' takes an input of a function (callback)
+				d. 'doSomething' is called with a input of 'doStuff'
+				e. 'doStuff' is being run, and it see the 'wurd' variable that's being pass to it
+				f. 'doStuff' alerts that variable 'Yo, Yo, Yo!!!'
+
+			3. Functions can take inputs, string, numbers, and other functions. When a function takes in another function it could use it when it's being called and than uses the function it took in as the callback function.
+		*/
+
+      </script>
+  </body>
+</html>
+
+

@@ -1,0 +1,121 @@
+<html>
+<head>
+	<title>Ahmed's Favorite Movies</title>
+
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<style>
+	img {
+		width:200px;
+		height: auto;
+		border: 6px solid yellow;
+	}
+</style>
+<body>
+	<div class="container">
+	  <h2>Matt's Movies</h2>
+	  <p>Forreals. These are my favorite movies of all time.</p>            
+	  <table class="table">
+	    <thead>
+	      <tr>
+	        <th>Movie Name</th>
+	        <th>Year</th>
+	        <th>Actors</th>
+	        <th>Poster</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td id="movie1">BLAH</td>
+	        <td id="year1">BLAH</td>
+	        <td id="actors1">BLAH</td>
+	        <td id="poster1">BLAH</td>
+	      </tr>
+	      <tr>
+	        <td id="movie2">BLAH</td>
+	        <td id="year2">BLAH</td>
+	        <td id="actors2">BLAH</td>
+	        <td id="poster2">BLAH</td>
+	      </tr>
+	      <tr>
+	        <td id="movie3">BLAH</td>
+	        <td id="year3">BLAH</td>
+	        <td id="actors3">BLAH</td>
+	        <td id="poster3">BLAH</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+
+<!-- Code is pulling stuff from the API -->
+<!-- Specific object regarding the movie the matrix. -->
+<!-- Grabs Jquery -->
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+
+<script type="text/javascript">
+	// Variable for the matrix. Place it into the url
+	var movie1 = 'demolition+man';
+	var movie2 = 'shawshank+redemption';
+	var movie3 = 'mad+max';
+	//Inserting the+matrix (building the url)
+	var queryURL1 = "http://www.omdbapi.com/?t=" + movie1 + "&y=&plot=short&r=json";
+	var queryURL2 = "http://www.omdbapi.com/?t=" + movie2 + "&y=&plot=short&r=json";
+	var queryURL3 = "http://www.omdbapi.com/?t=" + movie3 + "&y=&plot=short&r=json";
+
+	// AJAX calling a function using the 
+	$.ajax({url: queryURL1, method: 'GET'})
+
+     // When the ajax is done 
+	 .done(function(response) {
+
+	 	// log the response  
+	    console.log(response);
+
+	    // Switch Movie 1 title to...
+     	$("#movie1").html(response.Title);
+ 	    $("#year1").html(response.Year);
+ 	    $("#actors1").html(response.Actors);
+ 	    $("#poster1").html("<img src=" + response.Poster + " alt='movie poster'/>");
+
+	}); 
+
+	$.ajax({url: queryURL2, method: 'GET'})
+
+     // When the ajax is done 
+	 .done(function(response) {
+
+	 	// log the response  
+	    console.log(response);
+
+	    // Switch Movie 1 title to...
+ 	    $("#movie2").html(response.Title);
+ 	    $("#year2").html(response.Year);
+ 	    $("#actors2").html(response.Actors);
+     	$("#poster2").html("<img src=" + response.Poster + " alt='movie poster'/>");
+
+	}); 
+
+	$.ajax({url: queryURL3, method: 'GET'})
+
+     // When the ajax is done 
+	 .done(function(response) {
+
+	 	// log the response  
+	    console.log(response);
+
+	    // Switch Movie 1 title to...
+ 	    $("#movie3").html(response.Title);
+ 	    $("#year3").html(response.Year);
+ 	    $("#actors3").html(response.Actors);
+     	$("#poster3").html("<img src=" + response.Poster + " alt='movie poster'/>");
+	}); 
+
+
+
+
+</script>
+
+
+</body>
+</html>

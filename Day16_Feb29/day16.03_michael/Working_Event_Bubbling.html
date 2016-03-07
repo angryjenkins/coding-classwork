@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess The Show</title>
+</head>
+
+<body>
+    <h1>Guess The Show</h1>
+    
+    <div id="mainButtons">
+        <button data-tvshow="friends">Ross</button>
+        <button data-tvshow="breaking bad">Walt</button>
+        <button data-tvshow="my name is earl">Randy</button>
+        <button data-tvshow="everybody loves raymond">Robert</button>
+    </div>
+
+    <br> 
+
+    <a id="addButtonAbove" href="#">add another button above</a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        $(document).on('click', 'button', function() {
+            var part = $(this).data('tvshow');
+
+            $('h1').html(part);
+        });
+
+        $('#addButtonAbove').on('click', function() {
+            var newButton = $('<button/>');
+        
+            newButton.text("Michael");
+
+            newButton.attr('data-tvshow', 'The Office');
+
+            $('#mainButtons').append(newButton);
+        });
+
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Doughnuts</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	</head>
+	<body>
+		<h1>Doughnuts!</h1>
+
+		<div id="donut">
+		  Boston Cream Donuts!!!
+		</div>
+		</br>
+		<div id="other">
+		  Not a doughnut.
+		</div>
+		</br>
+		<div id="counter">
+		  There is a counter here.
+		</div>
+
+	    <script type="text/javascript">
+
+	    $( document ).ready(function() {
+	      function doughnuts() { 
+	      	var secretCount = 0;
+
+			$( "#donut" ).click(function() {
+			  alert("YES...100 times yes!!!");
+			});
+
+			$( "#other" ).click(function() {
+			  alert("D'OH!!!");
+			});
+
+			$( "#counter" ).click(function() {
+			  console.log($(this));
+			  alert(secretCount);
+			  secretCount++;
+			});
+
+	      };
+	      doughnuts();
+		});
+
+	    </script>
+	</body>
+</html>

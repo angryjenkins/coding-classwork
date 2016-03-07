@@ -1,0 +1,51 @@
+<!-- 
+* You are given the following HTML. Using jQuery, complete the following:
+	* Create a click event on every "number" class.
+	* Whenever a number is clicked, store it.
+	* If the user correctly inputs 122343221, alert them they got in.
+	* If the user inputs that many numbers and was wrong, alert them that they got it wrong. 
+	-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Passcode</title>
+	</head>
+	<body>
+		<div id=""><h1>Passcode!</h1></div>
+
+		<div class="number" data-name="one"><h3>ONE</h3></div>
+		<div class="number" data-name="two"><h3>TWO</h3></div>
+		<div class="number" data-name="three"><h3>THREE</h3></div>
+		<div class="number" data-name="four"><h3>FOUR</h3></div>
+		
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	    <script type="text/javascript">
+			$(document).ready(function() {
+	    	 	function passcode() {
+	    	 		$(".number").click(function(){
+
+	    	 			var correctCode = ["one","two","two","three","four","three","two","two","one"]; 
+	    	 				inputCode = [];
+	    	 				count=0;
+	    	 			//alert that you clicked something.
+	    	 			// alert("You clicked a number!");
+
+	    	 			var target = $(this).attr('data-name');
+	    	 			console.log(target);
+
+	    	 			//store the numbers.
+						inputCode.push(target);
+						if(count = 9){
+
+						}
+	    	 		});
+			    	//call function
+		    	};
+		    	
+				passcode();
+	    	});
+	    </script>
+	</body>
+</html>

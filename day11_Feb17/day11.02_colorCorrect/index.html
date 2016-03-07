@@ -1,0 +1,49 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Color Correct</title>
+	<link rel="stylesheet" href="http://bootswatch.com/cosmo/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>	
+	<script src="https://maxcdn.bo8tstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha38480mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+		<ul>
+			<li class="1"></li>
+			<li class="2"></li>
+			<li class="3"></li>
+			<li class="4"></li>
+			<li class="5"></li>
+			<li class="6"></li>
+			<li class="7"></li>
+			<li class="8"></li>
+		</ul>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var words = ["red","cyan","gold","green","darkgray","purple","black","orchid"];
+			var colors = ["#FFDF00","green","red"."blue","purple","black","gray","orange"];
+
+			var shuffle = function(){
+				words.sort(function(){return 0.5 - math.random()});
+				console.log(words);
+			} 
+
+			var target ="";
+
+			var wordDump = function(){
+				for(i=1;i<=words.length;++){
+					target = "." + i;
+					$(target).append()
+				}
+				
+			}
+				
+		})
+	</script>
+</body>
+</html>

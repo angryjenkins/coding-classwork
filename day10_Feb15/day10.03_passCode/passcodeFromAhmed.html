@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Passcode</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	</head>
+	<body>
+		<h1>Passcode!</h1>
+
+		<div class="number" data-name="one"><h3>ONE</h3></div>
+		<div class="number" data-name="two"><h3>TWO</h3></div>
+		<div class="number" data-name="three"><h3>THREE</h3></div>
+		<div class="number" data-name="four"><h3>FOUR</h3></div>
+
+	    <script type="text/javascript">
+
+	    $( document ).ready(function() {
+	      function passcode() { 
+	      	var code =  122343221;
+	      	var inputCode = "";
+
+				$( ".number" ).click(function() {
+					var target = $(this).attr('data-name');
+					if (target == 'one') {
+						inputCode = inputCode + 1;
+					}else if (target == 'two') {
+						inputCode = inputCode + 2;
+					}else if (target == 'three') {
+						inputCode = inputCode + 3;
+					}else if (target == 'four') {
+						inputCode = inputCode + 4;
+					};
+					console.log(inputCode);
+
+					if (parseInt(inputCode) == code) {
+						alert("Hacker Voice: YOUR IN!");
+					}else if (inputCode.length > 10) {
+						alert("Wrong passcode!");
+					};
+				});
+			};
+			
+	      passcode();
+		});
+
+	    </script>
+	</body>
+</html>

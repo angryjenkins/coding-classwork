@@ -1,0 +1,112 @@
+<html>
+<head>
+	<title>Favorite artists</title>
+	<link rel="stylesheet" href="http://bootswatch.com/superhero/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>artist Search</h1>
+
+  <div id="buttonsView">
+  </div>
+
+  <form id="artist-form">
+    <label for="artist-input">Add an Artist Bro</label>
+    <input type="text" id="artist-input"><br>
+   
+    <input id="addArtist" type="submit" value="Add an artist Bro">
+  </form>
+  
+  <div id="artistsView">
+
+  </div>
+
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script type="text/javascript">
+	var artists = [];
+
+	function appendNewButton(artist){ 
+	    var a = $('<button>')
+	    a.addClass('artist');
+	    a.attr('data-name', artist);
+	    a.text(artist);
+	    $('#buttonsView').append(a);
+	}
+
+	function renderButtons(){ 
+		for (var i = 0; i < artists.length; i++){
+		    appendNewButton(artists[i])
+		}
+	}
+
+	function makeElem(type, data, elemToappendTo){
+		var childElem = $(type).text(data);
+
+		elemToappendTo.append(childElem);
+	}
+
+	function displayArtistInfo(){
+		// part one: capture artist info
+		var artist = $(this).attr('data-name');
+		var queryURL = "https://api.spotify.com/v1/search?q=" + artist + "'&type=artist";
+		var artistID = "";
+
+
+		// first call: artist ID 
+		$.ajax({url: queryURL, method: 'GET'}).done(function(response) {
+			artistID = response.artists.items[0].id;
+
+		// second call: newID
+
+		var tracksURL = "https://api.spotify.com/v1/artists/" + artistID +"/top-tracks?country=US";
+
+		$.ajax({url: tracksURL, method: 'GET'}).done(function(response) {
+			var theTrack = response.tracks[0];
+			var theTrackName = theTrack.name;
+			var theTrackImg = theTrack.album.images[0].url;
+			var theTrackId = theTrack.id;
+			console.log(theTrackId);
+			$('#artistsView').append('<iframe src="https://embed.spotify.com/?uri=spotify:track:' + theTrackId + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
+		})
+
+			// var movieDiv = $('<div class="artistDiv">'); //CHANGED THIS from artist to movieDiv
+
+			// makeElem('<p>', "Rating: " + response.Rated, movieDiv)
+
+			// makeElem('<p>', "Released: " + response.Released, movieDiv) // make two AJAX calls
+
+			// makeElem('<p>', "Plot: " + response.Plot, movieDiv)
+
+			if (response.Poster != 'N/A'){ //Threw this if statement around the image
+				var image = $('<img>').attr("src", response.Poster);
+
+				movieDiv.append(image);
+			}
+
+			$('#artistsView').prepend(movieDiv);
+
+		}); 
+	}
+
+	renderButtons();
+
+	$('#addArtist').on('click', function(){
+
+		var artist = $('#artist-input').val().trim();
+
+		artists.push(artist);
+		
+		appendNewButton(artist);
+
+		return false;
+	});
+
+	$(document).on('click', '.artist', displayArtistInfo);
+
+
+</script>
+
+
+</body>
+</html>

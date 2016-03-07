@@ -1,0 +1,56 @@
+<!-- * You are given the following HTML. Using jQuery, create code that will:
+	* Select everything with the class "greekMythNames" and alert the second element's text.
+	* Select the element with the id "wrestler" and alert its text
+	* Select the element with the data-name "007" and alert its text
+	* Select the element with the id "joker" and alert its data-name
+
+``` -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>TakeNames</title>
+	</head>
+	<body>
+
+		<div id=""><h1>TakeNames!</h1></div>
+
+		<div class="greekMythNames">Odysseus</div>
+		<div class="greekMythNames">Penelope</div>
+		<div class="greekMythNames">Medea</div>
+		<div class="greekMythNames">Callisto</div>
+		</br>
+		<div id="wrestler">Hulk Hogan</div>
+		</br>
+		<div data-name='007'>James Bond</div>
+		</br>var 
+		<div id="joker" data-name='Jack Napier'></div>
+
+		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	    <script type="text/javascript">
+	    	 $(document).ready(function() {
+	    	 	function takeNames() { 
+	    	 		// call jQUery by class
+		    		var myths = $(".greekMythNames");
+		    		console.log(myths);
+		    		alert(myths[1].innerText);
+
+	    			//call jQuery by ID
+		    		var wwe = $("#wrestler");
+		    		alert(wwe[0].innerText);
+
+	    			//data-name
+		    		var bond = $("*[data-name='007']");
+		    		alert(bond[0].innerText);
+
+		    		//data attributes
+		    		var villain = $("#joker");
+		    		alert(villain.attr('data-name'));
+		    	};
+		    	//call function
+				takeNames();
+	    	});
+	    </script>
+	</body>
+</html>
+```

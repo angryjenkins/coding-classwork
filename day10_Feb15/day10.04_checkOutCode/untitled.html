@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Add Stuff with JavaScript vs jQuery!</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	</head>
+	<body>
+		<h1>Add Stuff with JavaScript vs jQuery!</h1>
+		
+		<div id="js-area">xxx</div>
+		</br>
+		<div id="jQuery-area">xxx</div>
+	    
+	    <script type="text/javascript">
+
+	    $( document ).ready(function() {
+	      function addStuff() { 
+
+				//adding element to DOM with JS
+				var jsDiv = document.createElement("div");
+				var jsText = document.createTextNode("This text is created by javascript only.");
+				jsDiv.appendChild(jsText);
+				var jsEl = document.getElementById("js-area");
+				jsEl.appendChild(jsDiv);
+
+				//adding elements to DOM with jQuery
+				var el = $('<div>This text is created by jQuery.</div>');
+				$("#jQuery-area").append(el);
+
+				//adding an picture to DOM with jQuery
+				var pic = $('<img src="smile.png">');
+				$("#jQuery-area").append(pic);
+	        };
+
+		  addStuff();
+		});
+
+	    </script>
+	</body>
+</html>

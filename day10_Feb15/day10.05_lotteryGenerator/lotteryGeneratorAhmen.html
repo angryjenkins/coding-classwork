@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LotteryHTML</title>
+
+	<!-- Include Jquery --> 
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+	<!-- Included Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+	<h1>Lottery Generator</h1>
+	<!-- Created two buttons with distinct classes -->
+	<button class="btn btn-primary genBtn">Generate</button>
+	<button class="btn btn-danger clearBtn">Clear</button>
+	<div class="numberdump"></div>
+
+	<!-- Jquery Code -->
+	<script>
+	// Create innitial jquery setup
+		$(document).ready(function(){
+			function generateLottery(){
+
+				// Create temporary Alert for Generate
+				$(".genBtn").click(function(){
+					alert("Generated");
+					createNumbers();
+				});
+
+				// Create Temporary alert for Clear
+				$(".clearBtn").click(function(){
+					alert("Cleared");
+
+					// Call the clear function
+					clearNumbers();
+				});
+			};
+
+			// Create Random Numbers
+			function createNumbers(){
+				var lotterynumber = "";
+
+				// Generate 7 random numbers
+				for (var i = 0; i < 7; i++){
+					var num = (Math.floor((Math.random() *9) + 1));
+					lotterynumber+=num;
+				};
+				// Created alerted 
+				alert(lotterynumber);
+
+				// Append those numbers
+				$(".numberdump").append(lotterynumber);
+				$(".numberdump").append(" ");
+
+			};
+
+			function clearNumbers(){
+				$(".numberdump").empty();
+			}
+
+			// Runs generateLottery
+			generateLottery();
+
+		});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pangram!</title>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<link rel="stylesheet" href="http://bootswatch.com/superhero/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	
+	<!-- Latest compiled and minified CSS & JS -->
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="assets/js/pangram.js"></script>
+</head>
+<body>
+	<header>
+		<div class="jumbotron">
+			<div class="container-fluid">
+				<h1>Is it a pangram?</h1>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h2>Input a string.</h2>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-9">
+		 				<input type="text" id="pangramChecker" class="form-control">
+					</div>
+					<div class="col-md-3">
+						<button id="check" class="btn btn-primary btn-block">
+							<i class="glyphicon glyphicon-plus"></i>
+						</button>
+					</div>
+				</div>
+				<p id="result">
+					Insert a phrase - I'll tell you if it's a pangram.
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

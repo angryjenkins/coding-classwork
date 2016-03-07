@@ -1,0 +1,64 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Lottery Generator!</title>
+	<link rel="stylesheet" href="http://bootswatch.com/superhero/bootstrap.min.css">
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Lottery Generator!</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<button class="btn btn-primary genBtn">
+				Generate
+			</button>
+		</div>
+		<div class="col-md-6">
+			<button class="btn btn-danger clearBtn">
+				Clear
+			</button>
+		</div>
+	</div>
+
+		
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script type="text/javascript">	
+	$(document).ready(function() {
+    	function lotto(){ 
+			$(".genBtn").click(function(){
+				alert("generated!");
+			});
+
+			$(".clearBtn").click(function(){
+				alert("cleared!");
+			});
+        };
+
+        function createNumbers(){
+        	var lottoNum = "";
+        	
+        	for(var i=0;i<7;i++);
+        		var num = (Math.floor((Math.random()*9)+1));
+        		lottoNum+=num;
+	        };
+	        alert(lottonum);
+
+	        $(".numberDump").append(lottonum);
+	        $(".numberDump").append(" ");
+
+	        return lottonum;
+	  };      
+
+	  lotto();
+	});
+
+</script>
+</body>
+</html>

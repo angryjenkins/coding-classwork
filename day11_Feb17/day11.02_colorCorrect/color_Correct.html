@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Color Correct</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	</head>
+	<style>
+		.box {width: 105px; height:60px; border-style: solid; padding: 2px; margin: 2px; font-size: 40px;}
+		.word {width: 60px; height:40px; padding: 2px; margin: 2px; font-size: 35px; }
+		#gold {color: gold;}
+		#green {color: green;}
+		#red {color: red;}
+		#cyan {color: cyan;}
+		#purple {color: purple;}
+		#black {color: black;}
+		#orchid {color: orchid;}
+		#darkgray {color: darkgray;}
+	</style>
+
+	<body>
+		<div id="target"></div>
+		<br>
+		<div id="choices"></div>
+
+	    <script type="text/javascript">
+
+	    $( document ).ready(function() {
+
+	    	var makeColors = function() {    
+		    	var wordAry = ['gold','green','red','cyan','purple','black','orchid','darkgray'];
+				var randomWordAry = ['gold','green','red','cyan','purple','black','orchid','darkgray'];
+				var shuffle = function() {
+					randomWordAry.sort(function() {return .5 - Math.random() });
+				};
+				//keep shuffle until first word isn't gold
+				while(randomWordAry[0] == 'gold') {
+					shuffle();
+				};
+				//empty everything at the start of the game
+	    		$("#target").empty();		
+	    		$("#choices").empty();
+
+				for (var w = 0; w < randomWordAry.length; w++) {
+					if (w == 0) {					
+						var targetWord = $('<div class="box" id='+wordAry[w]+'></div>').text(randomWordAry[w]);  
+						$("#target").append(targetWord);
+					}else{
+						var word = $('<div class="word" id='+wordAry[w]+'></div>').text(randomWordAry[w]);  
+						$("#choices").append(word);
+						$(word).on('click',function() {
+							if ( $(this)[0].id == $(targetWord).text() ) {
+								alert("Yay!!! You Win!");
+								makeColors();
+							}else{
+								alert("Nope, you lose!");
+								makeColors();
+							};
+						});
+					}
+
+				};
+	    	}
+	    	makeColors();
+		});
+
+	    </script>
+	</body>
+</html>

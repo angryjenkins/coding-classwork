@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>Movies!</title>
+	<style type="text/css">
+		button, div, form, input {
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Movies!</h1>
+
+  <div id="moviesView">
+
+  </div>
+
+  <form id="movie-form">
+    <label for="movie-input">Add a Movie Bro</label>
+    <input type="text" id="movie-input"><br>
+   
+    <input id="addMovie" type="submit" value="Add a Movie Bro">
+  </form>
+
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script type="text/javascript">
+	var movies = ['The Matrix', 'The Notebook', 'Mr. Nobody', 'The Lion King'];
+	
+
+	function render(){
+		var a = $('<button>');
+	    a.addClass('movie');
+	    a.attr('data-name', movies[i]);
+	    a.text(movies[i]);
+	    $('#moviesView').append(a);
+	    return a;
+	}
+
+	for (var i = 0; i < movies.length; i++){
+	    render();
+	}
+
+	$('#addMovie').on('click', function(){
+		/*
+			Write code between the dashes below to 
+				* grab the value from the input with an id of movie-input
+					* trim the value with the trim function (look it up if you don't know how to use it)
+					* push the value into the movies array
+					* run the above for loop again (literally copy and paste it)
+		*/
+
+
+		//------YOUR CODE GOES IN THESE DASHES
+		var a = $('<button>');
+		var b = $("#movie-input").val();
+
+		movies.push(b.trim);
+
+	    render();	//clearstetbox
+		return false; //prevents the page from going anywhere (confused? comment this line out, submit it and watch what the browser does.)	
+	});
+
+</script>
+
+
+</body>
+</html>

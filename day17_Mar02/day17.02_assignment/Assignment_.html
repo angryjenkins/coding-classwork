@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>Movies!</title>
+	<style type="text/css">
+		button, div, form, input {
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Movies!</h1>
+
+  <div id="moviesView">
+
+  </div>
+
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script type="text/javascript">
+	var movies = ['The Matrix', 'The Notebook', 'Mr. Nobody', 'The Lion King'];
+
+	for (var i = 0; i < movies.length; i++){
+
+		/*
+			Write code between the dashes below to 
+				* make a button	
+					* give the button a class of movie
+					* set the data-name attribute of the button to movie name
+					* set the text of the button to the movie name 
+				* append the button to moviesView
+		*/
+
+		//------YOUR CODE GOES IN THESE DASHES
+		
+		// my way: $("#moviesView").append('<button class="movie" data-name="' + movies[i] +'">' + movies[i] + '</button>');
+
+
+		//ahmed's way
+
+		var a = $("<button>"); // variable A makes a button for every loop
+
+		a.addClass("movie");			//adds the class "moie" to every button
+		a.attr('data-name', movies[i]); // gives the button an attribute of "data-name" set t the movie name.
+		a.text(movies[i]);				//puts the movie title into the button.			
+		$('#moviesView').append(a);		//adds the button to the HTML.
+
+		//THIS WOLL BE IN HOMEWORK!!!!
+
+
+	    //------    
+
+	}
+
+</script>
+
+
+</body>
+</html>

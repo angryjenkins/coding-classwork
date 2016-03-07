@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Street Fighter</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <style>
+    body {
+        background: url(images/streetfighter_bg.png) no-repeat;
+        width: 500px;
+        height: 360px;
+    }
+    #button-area-top {
+      margin-top: 218px;
+      margin-left: 140px;
+    }
+    #button-area-bot {
+      margin-left: 140px;
+    }
+    .buttons {
+        width: 50px;
+        height: 65px;
+        float: left;
+    }
+    .char {
+      width: 90px;
+      height: 125px;
+    }
+    .clear {
+        clear: left;
+    }
+    .left-side{
+      position: absolute;
+      top: 200px;
+    }
+    .right-side{
+      position: absolute;
+      top: 205px;
+      left: 380px;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="button-area-top"></div>
+    <div class="clear"></div>
+
+    <div id="button-area-bot"></div>
+    <div class="clear"></div>
+
+    <p class="left-side"></p>
+    <p class="right-side"></p>
+
+    <script type="text/javascript">
+
+    var count = 0;
+
+    $(document).ready(function() {
+        //fight fight fight
+        var characters = {
+            'blanka': {
+                name: "Blanka",
+                biggerImg: url("images/blanka_big.png"),
+                buttonImg: url("images/blanka_button.png")
+            },
+            'chunli': {
+                name: "ChunLi",
+                biggerImg: url("images/chunli_big.png"),
+                buttonImg: url("images/chunli_button.png")
+            },
+            'dhalsim': {
+                name: "Dhalsim",
+                biggerImg: url("images/dhalsim_big.png"),
+                buttonImg: url("images/dhalsim_button.png"),
+            },
+            'ehonda': {
+                name: "E-Honda",
+                biggerImg: url("images/ehonda_big.png"),
+                buttonImg: url("images/ehonda_button.png")
+            },
+            'guile': {
+                name: "Guile",
+                biggerImg: url("images/guile_big.png"),
+                buttonImg: url("images/guile_button.png"),
+            },
+            'ken': {
+                name: "Ken",
+                biggerImg: url("images/ken_big.png"),
+                buttonImg: url("images/ken_button.png"),
+            },
+            'ryu': {
+                name: "Ryu",
+                biggerImg: url("images/ryu_big.png"),
+                buttonImg: url("images/ryu_button.png"),
+            },
+            'zangief': {
+                name: "Zangief",
+                biggerImg: url("images/zangief_big.png"),
+                buttonImg: url("images/zangief_button.png")
+            }
+        };
+
+        var renderGame = function(character,area){
+            console.log("rendering "+character.name);
+            
+            var charDiv =$("#" + name);
+                charImg = $("<img alt='image' class='character'>").attr("src", character.biggerImg);
+                charSelectDiv = $("#" + name + "_small");
+                charSelectImg = $("<img alt='image' class='charSelect'>").attr("src", character.buttonImg);
+
+                charDiv.append(charImage);
+                $("#"+area).append(charDiv);
+
+                charSelectDiv.append(charSelectImage);
+                $("#"+area).append(charSelectDiv);
+        }
+
+
+
+        var render = function(//) {
+            if (//) {
+              var charDiv = $(//);
+              var charImage = $(//);
+              charDiv.append(//);
+              $(//).append(//);
+            }else{
+              var charDiv = $(//);
+              var charImage = $(//);
+              charDiv.append(//);
+              $(//).append(//);
+            };
+        };
+
+        var characterNames = [//];
+        var sides = [//];
+
+        for (//) {
+          //
+          render(//);
+          $(//).on('click', function() {
+
+              if (//) {
+                //
+              };
+          });
+        };
+        for (//) {
+          //
+          render(//);
+          $(//).on('click', function() {
+
+              if (//) {
+                //
+              };
+          });
+        };
+    });
+    </script>
+</body>
+
+</html>

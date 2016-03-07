@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors Part 1</title>
+</head>
+<body>
+
+<div id="game">
+
+</div>
+
+<script type="text/javascript">
+
+// Create an array that lists out all of the options
+var options = ['r','p','s'];
+
+// Captures Key Clicks
+document.onkeyup = function(event) {
+
+	// Determines which exact key was selected. Make it lowercase
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+	// If Logic to determine if userGuess is r, p, or s
+	if(userGuess == 'r' || userGuess == 'p' || userGuess == 's') {
+		// Alerts with user guess
+		alert("User Guess: " + userGuess);
+
+		// Create code to randomly choose one of the three options (Computer) 
+		var computerGuess = options[Math.floor(Math.random()*options.length)];
+
+		// Alerts with Computer guess
+		alert("Computer Guess: " + computerGuess);
+
+		// Check if User won or Computer Won
+		if (userGuess == computerGuess) {
+			alert("It's a draw");
+		}
+		else if (userGuess == "r" && computerGuess == "s"){
+			alert("You win!")
+		}
+		else if (userGuess == "p" && computerGuess == "r"){
+			alert("You win!")
+		}
+		else if (userGuess == "s" && computerGuess == "p"){
+			alert("You win!")
+		} else {
+			alert("You lose...");
+		}
+
+	}
+
+}
+
+</script>
+</body>
+</html>

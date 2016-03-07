@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Fridge Magnets</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	</head>
+	<style>
+		body {background: url(fridge.png) no-repeat;}
+		.letter {color: darkcyan; width: 14px; height:20px; border-style: solid; padding: 2px; float: left; margin: 2px;}
+		.fridge-text {color: orange;}
+		#display {margin-top:78px; height:500px; width:220px; margin-left:60px;}
+		#buttons {padding-top:60px;}
+		#clear {clear: left; font-size: 25px; color: black; border-style: solid; width: 100px;}
+	</style>
+
+	<body>
+		<div id="display"></div>
+	    <div id="buttons"></div>
+		<div id="clear">clear</div>
+
+	    <script type="text/javascript">
+
+	    $( document ).ready(function() {
+			//write your code here
+			var letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","_"];
+			var magnetsButton = function() {
+				for (var e = 0; e < letters.length; e++) {    
+				    var txt = $('<p class="letter" id='+letters[e]+'></p>').text(letters[e]);   
+				    $("#buttons").append(txt); 
+				    $(txt).on('click',function() {
+						//console.log($(this)[0].id);
+						var fridgeM = $('<p class="letter fridge-text" id='+letters[e]+'></p>').text($(this)[0].id);
+						$("#display").append(fridgeM);
+					});
+				};
+				$('#clear').on('click', function() {
+					$("#display").empty(); 
+				});
+				$("#clear").append(clear);
+			};
+			magnetsButton();
+		});
+
+	    </script>
+	</body>
+</html>

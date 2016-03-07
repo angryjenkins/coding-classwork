@@ -1,0 +1,23 @@
+body {
+	paddiing: 60px 0;
+}
+
+header {
+	background-color: #ccc;
+}
+
+header h1 {
+	background-color: black;
+	width: 200px;
+}
+
+div.mainContent {
+	width: 650px;
+	background: #ccc;
+}
+
+div.sidebarContent {
+	width:270px;
+	float:right;
+	background: #ccc;
+}

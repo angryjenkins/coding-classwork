@@ -1,0 +1,32 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var car1 = {
+			make: "Honda",
+			model: "Civic",
+			year: 2009,
+			color: "blue",
+			price: 15000,
+			isRegistered: true,
+			mileage: 100000,
+
+			drive: function(additionalmiles){
+				this.mileage = this.mileage + additionalmiles;
+				//for values of functions to be displayed they must be returned!!!
+				return this.mileage;
+			}
+		}
+
+
+		alert(car1.make);
+		alert(car1.drive(0));
+		alert(car1.drive(2000));
+
+	</script>
+	
+</body>
+</html>

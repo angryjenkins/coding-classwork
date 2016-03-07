@@ -1,0 +1,98 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Rock, Paper, Scissors</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4"><h2>Rock</h2><p>Type "r" to select.</p></div>
+			<div class="col-md-4"><h2>Paper</h2><p>Type "p" to select.</p></div>
+			<div class="col-md-4"><h2>Scissors</h2><p>Type "s" to select.</p></div>
+		</div>
+		<div class="row">
+			<div id="score">
+				
+			</div>
+		</div>
+	</div>
+
+
+<script type="text/javascript">
+	//make an array of the possible choices.
+	var choices = ['r','p','s'];
+	var wins = 0;
+	var losses = 0;
+	var ties = 0;
+
+	//player chooses R, P or S on keyboard.
+	document.onkeyup = function(e) {
+	   var userGuess = String.fromCharCode(e.keyCode).toLowerCase();
+	   //check if userGuess = r, p, or s.
+
+	   if (userGuess === "r" || userGuess === "p" || userGuess === "s"){
+	   		alert("You Selected: "+userGuess);
+	   		//computer randomly chooses r, p, or s.
+			var computerGuess = choices[Math.floor(Math.random()*choices.length)];
+			alert("Computer Selected: " +computerGuess);
+
+			//compare player and computer choices. 
+
+			// RvR, RvP, RvS
+			// PvR, PvP, Pvs
+			// SvR, SvP SvS
+
+			if (userGuess==="r" && computerGuess==="r"){
+				alert("You've both chosen rock. It's a tie!");
+				ties++;
+			} else if (userGuess ==="r" && computerGuess === "p"){
+				alert("Paper beats Rock! You lose!");
+				losses++;
+			} else if (userGuess ==="r" && computerGuess === "s"){
+				alert("Rock beats Scissors! You win!");
+				wins++;
+			} else if (userGuess ==="p" && computerGuess === "r"){
+				alert("Paper beats Rock! You win!");
+				wins++;
+			} else if (userGuess ==="p" && computerGuess === "p"){
+				alert("You've both chosen paper. It's a tie!");
+				ties++;
+			} else if (userGuess ==="p" && computerGuess === "s"){
+				alert("Scissors beats Paper! You lose!");
+				losses++;
+			} else if (userGuess ==="s" && computerGuess === "r"){
+				alert("Rock beats Scissors! You lose!");
+				losses++;
+			} else if (userGuess ==="s" && computerGuess === "p"){
+				alert("Scissors beats Paper! You win!");
+				wins++;
+			} else if (userGuess ==="s" && computerGuess === "s"){
+				alert("You've both chosen Scissors. It's a tie!");
+				ties++;
+			}
+
+			// alert("wins: "+wins+ " , "+"losses: "+losses+ " , "+"ties: "+ties+".");
+
+			var html = 	"<div class='row'>"+
+						"<h2>Scoreboard</h2>"+
+						"<div class='col-md-4'><p>Wins: " + wins + "</p></div>" +
+						"<div class='col-md-4'><p>Losses: " + losses + "</p></div>" +
+						"<div class='col-md-4'><p>Ties: " + ties + "</p></div>"
+						+"</div>";
+
+		 document.querySelector('#score').innerHTML = html;
+   		}
+	}
+	
+
+//computer spits a result based on conditions.
+
+//computer saves and tracks score - wins, losses, ties.
+	
+
+// user pushes R, P or S to play again.
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<!-- Code is pulling stuff from the API -->
+<!-- Specific object regarding the movie the matrix. -->
+
+<!-- Grabs Jquery -->
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+
+<script type="text/javascript">
+	// Variable for the matrix. Place it into the url
+	var type = 'transformers';
+	var year = '';
+	var plot = 'short';
+	var format = 'json';
+
+	//Inserting the+matrix (building the url)
+	var queryURL = "http://www.omdbapi.com/?s=" + type + "&y=" + year + "&plot=" + plot + "&r=" + format;
+
+	// AJAX calling a function using the 
+	$.ajax({url: queryURL, method: 'GET'})
+
+     // When the ajax is done 
+	 .done(function(response) {
+	 	for(i=0;i<response.length;i++){
+	 		// log the response  
+	     console.log(response.Title);
+	 	}
+	}); 
+
+</script>
+
+
+</body>
+</html>

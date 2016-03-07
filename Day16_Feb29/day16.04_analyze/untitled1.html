@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script type="text/javascript">
+	var type = 'the+matrix';
+	var queryURL = "http://www.omdbapi.com/?t=" + type + "&y=&plot=short&r=json"; //plugging the movie "The Matrix" into a query for the API.
+
+	$.ajax({url: queryURL, method: 'GET'})  //ajax method gets a url an a method.
+	 .done(function(response) {				//done method tells ajax what to do when finished.
+	     console.log(response);				//response is the entire JSON object.
+	     alert(response.Runtime);
+	}); 
+
+</script>
+
+
+</body>
+</html>
+
+

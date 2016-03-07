@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inception</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <style>
+    body {
+        background-color: black;
+    }
+
+    .mission {
+        height: 100px;
+        background-color: white;
+        font-size: 30px;
+        margin: 5px;
+        padding: 10px;
+    }
+
+    #yusuf {
+        width: 400px;
+        background-color: mediumseagreen;
+    }
+
+    #arthur {
+        width: 350px;
+        background-color: coral;
+    }
+
+    #eames {
+        width: 300px;
+        background-color: deepskyblue;
+    }
+
+    #cubb {
+        width: 250px;
+        background-color: darkgray;
+    }
+
+    #limbo {
+        width: 200px;
+        background-color: white;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="mission" id="yusuf">Yusuf's Dream</div>
+    <div class="mission" id="arthur">Arthur's Dream</div>
+    <div class="mission" id="eames">Eames's Dream</div>
+    <div class="mission" id="cubb">Cubb's Dream</div>
+    <div class="mission" id="limbo">Exit Limbo</div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        //dreamer's mission
+        var inception = {
+            missionLog: {
+                yusufMission: "Not complete.",
+                arthurMission: "Not complete.",
+                eamesMission: "Not complete.",
+                cubbMission: "Not complete.",
+            },
+            yusufDream: {
+                completeMission: function() {
+                    inception.missionLog.yusufMission = true;
+                    alert("Yusuf's Mission Complete");
+                },
+                arthurDream: {
+                    completeMission: function() {
+                        inception.missionLog.arthurMission = true;
+                        alert("Arthur's Mission Complete");
+                    },
+                    eamesDream: {
+                        completeMission: function() {
+                            inception.missionLog.eamesMission = true;
+                            alert("Eames's Mission Complete");
+                        },
+                        cubbDream: {
+                            completeMission: function() {
+                                inception.missionLog.cubbMission = true;
+                                alert("Cubb's Mission Complete");
+                            },
+                            exitLimbo: {
+                                completeMission: function() {
+                                    if (inception.missionLog.yusufMission && inception.missionLog.arthurMission && inception.missionLog.eamesMission && inception.missionLog.cubbMission == true) {
+                                        alert("YAY?");
+                                    };
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        //click events
+        $('#yusuf').on('click', function() {
+            inception.yusufDream.completeMission();
+        });
+        $('#arthur').on('click', function() {
+            inception.yusufDream.arthurDream.completeMission();
+        });
+        $('#eames').on('click', function() {
+            inception.yusufDream.arthurDream.eamesDream.completeMission();
+        });
+        $('#cubb').on('click', function() {
+            inception.yusufDream.arthurDream.eamesDream.cubbDream.completeMission();
+        });
+        $('#limbo').on('click', function() {
+            inception.yusufDream.arthurDream.eamesDream.cubbDream.exitLimbo.completeMission();
+        });
+    });
+    </script>
+</body>
+
+</html>

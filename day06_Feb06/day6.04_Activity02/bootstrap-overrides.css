@@ -1,0 +1,6 @@
+
+@media (max-width: 600px) {
+	img {
+    	border: 6px solid red;
+  	}
+}

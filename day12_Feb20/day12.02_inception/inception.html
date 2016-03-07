@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inception</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <style>
+       body {
+            background-color: black;
+        }
+
+        .mission {
+            height: 100px;
+            background-color: white;
+            border-radius: 25px;
+            font-size: 30px;
+            margin: 5px;
+            padding: 10px;
+        }
+
+        #yusuf {
+            width: 400px;
+            background-color: mediumseagreen;
+        }
+
+        #arthur {
+            width: 350px;
+            background-color: coral;
+        }
+
+        #eames {
+            width: 300px;
+            background-color: deepskyblue;
+        }
+
+        #cubb {
+            width: 250px;
+            background-color: darkgray;
+        }
+
+        #limbo {
+            width: 200px;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mission" id="yusuf">Yusuf's Dream</div>
+    <div class="mission" id="arthur">Arthur's Dream</div>
+    <div class="mission" id="eames">Eames's Dream</div>
+    <div class="mission" id="cubb">Cubb's Dream</div>
+    <div class="mission" id="limbo">Exit Limbo</div>
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+        var inception = {
+            missionLog: {
+                yusufMission: "mission incomplete.",
+                arthurMission: "mission incomplete.",
+                eamesMission: "mission incomplete.",
+                cubbMission: "mission incomplete.",
+            },
+            yusufDream: {
+                completeMission: function() {
+                    inception.missionLog.yusufMission = "complete.";
+                },
+                arthurDream: {
+                    completeMission: function() {
+                        inception.missionLog.arthurMission = "complete.";
+                    },
+                    eamesDream: {
+                        completeMission: function() {
+                            inception.missionLog.eamesMission = "complete.";
+                        },
+                        cubbDream: {
+                            completeMission: function() {
+                                inception.missionLog.cubbMission = "complete.";
+                            },
+                            exitLimbo: {
+                                completeMission: function() {
+                                    inception.missionLog.exitMission = "complete.";
+                                    if(inception.missionLog.yusufMission === "complete." && inception.missionLog.arthurMission === "complete." && inception.missionLog.eamesMission === "complete." && inception.missionLog.cubbMission === "complete."){
+                                        console.log("you're out of limbo!");
+                                    };
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        //REGISTER CLICK EVENTS HERE.
+        $("#yusuf").click(function(){
+            console.log("yusuf clicked!");
+            inception.yusufDream.completeMission();
+        });
+        $("#arthur").click(function(){
+            console.log("arthur clicked!");
+            inception.yusufDream.arthurDream.completeMission();
+        });
+        $("#eames").click(function(){
+            console.log("eames clicked!");
+            inception.yusufDream.arthurDream.eamesDream.completeMission();
+        });
+        $("#cubb").click(function(){
+            console.log("cubb clicked!");
+            inception.yusufDream.arthurDream.eamesDream.cubbDream.completeMission();
+        });
+        $("#limbo").click(function(){
+           inception.yusufDream.arthurDream.eamesDream.cubbDream.exitLimbo.completeMission();
+        });
+    });
+    </script>
+</body>
+
+</html>
