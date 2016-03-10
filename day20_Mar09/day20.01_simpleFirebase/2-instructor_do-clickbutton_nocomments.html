@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Click Button with Firebase!</title>
+
+	<!--  -->
+	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+</head>
+<body>
+
+	<h1>Ouch! You've clicked me <span id="clickValue"></span> times!</h1>
+	<button id="clickButton">Click Me!!!!</button>
+
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script>
+
+	// clickData is the call to the firebase database.
+	var clickData = new Firebase("https://rcb-clickbutton.firebaseio.com/");
+	var clickCounter = 0;	
+	
+	// when you click on "#clickButton" ....
+	$("#clickButton").on("click", function() {
+
+		// click counincreases by one each click.
+		clickCounter++;
+
+		// the current clickount is sent to the database.
+		clickData.set({
+			clickCount: clickCounter
+		});
+	})
+
+	// set values are added to a snapshot when the database's value changes.
+	clickData.on("value", function(snapshot) {
+
+		// the value of the click in the database is sent to "snapshot"
+		console.log(snapshot.val());
+
+		// the value of ClickCount is sent to the "#clickValue" element.
+		$("#clickValue").html(snapshot.val().clickCount);
+
+		// 
+		clickCounter = snapshot.val().clickCount;
+
+	// 
+	}, function (errorObject) {
+
+		// 
+	  	console.log("The read failed: " + errorObject.code);
+	
+	});
+
+	</script>
+
+</body>
+</html>
