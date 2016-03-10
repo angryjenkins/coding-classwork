@@ -117,10 +117,10 @@ $("#addUser").on("click", function() {
 // Create Firebase "watcher" (.on("value"))
 
 dataRef.on("value",function(snapshot){
-	$("#nameinput").html(snapshot.val().name);
-	$("#emailinput").html(snapshot.val().email);
-	$("#ageinput").html(snapshot.val().age);
-	$("#commentinput").html(snapshot.val().comment);
+	$("#namedisplay").html(snapshot.val().name);
+	$("#emaildisplay").html(snapshot.val().email);
+	$("#agedisplay").html(snapshot.val().age);
+	$("#commentdisplay").html(snapshot.val().comment);
 })
 // Create Error Handling
 
