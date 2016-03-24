@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Largest Prime Factor!</title>
+</head>
+<body>
+	
+
+<script type="text/javascript">
+	var dont = [], max = 10000, primes = [];
+
+	for (var i = 2; i <= max; i++) {
+	    if (!dont[i]) {
+	        primes.push(i);
+	        for (var j = i; j <= max; j += i) dont[j] = true;
+	    }
+	}
+
+	console.log(primes);
+
+	//found primes, now need largest factor.
+</script>
+</body>
+</html>
