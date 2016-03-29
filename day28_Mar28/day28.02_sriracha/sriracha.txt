@@ -1,0 +1,5 @@
+Make a JS file named sriracha.js and console log out "Node's like Sriracha. It's good on EVERYTHING".
+
+Run this in your terminal like this:
+
+node sriracha.js

@@ -1,0 +1,5 @@
+Write a command line node app that takes in a number from the command line and finds the sum of all the multiples of 6 under it.
+Bonus:
+
+Make the program take in two parameters, the first one is the same one, the second parameter replaces the 6.
+Give it default values in case the user doesn't provide parameters
