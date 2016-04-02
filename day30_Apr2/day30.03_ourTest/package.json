@@ -1,0 +1,15 @@
+{
+  "name": "ourtest",
+  "version": "1.0.0",
+  "description": "testing npm package.json",
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.69.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "*echo 0 Error: etc"
+  },
+  "author": "@angryjenkins",
+  "license": "ISC"
+}
