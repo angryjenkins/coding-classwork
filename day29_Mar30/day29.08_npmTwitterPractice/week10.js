@@ -8,8 +8,8 @@ var client = new Twitter({
   access_token_key: '733105861-FaINs5DuUaEz1leoqgmEHpYFkWryaSpDy3NBVA7F',
   access_token_secret: '0Jlu8gQbkYp2RYWEEIY8LmRowfcLoR0e0BXC9McqVLOsK'
 });
- 
-client.stream('statuses/filter', {track: subject},  function(stream){
+
+client.stream('statuses/filter', {track: subject, lang: 'en'},  function(stream){
   stream.on('data', function(tweet) {
     console.log("@" + tweet.user.screen_name + " ::: " + tweet.text);
     console.log('****');
