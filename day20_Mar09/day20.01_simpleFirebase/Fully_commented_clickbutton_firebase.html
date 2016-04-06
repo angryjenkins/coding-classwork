@@ -18,7 +18,7 @@
 
 	<!-- JQuery -->
 	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-	
+
 
 <!-- ================================================================================== -->
 
@@ -27,10 +27,10 @@
 	// VARIABLES
 	// --------------------------------------------------------------------------------
 
-	// **** Created Reference to Firebase Database 
+	// **** Created Reference to Firebase Database
 	var clickData = new Firebase("https://rcb-clickbutton.firebaseio.com/");
-	var clickCounter = 0;	
-	
+	var clickCounter = 0;
+
 
 	// FUNCTIONS + EVENTS
 	// --------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
 		clickCounter++;
 
 		// ***** Store Click Data to Firebase in a JSON property called clickCount *****
-		// Note how we are using the Firebase .set() method 
+		// Note how we are using the Firebase .set() method
 		clickData.set({
 			clickCount: clickCounter
 		});
@@ -61,17 +61,25 @@
 		// Then we change the html associated with the number.
 		$("#clickValue").html(snapshot.val().clickCount);
 
-		// Then update the clickCounter variable with data from the database. 
+		// Then update the clickCounter variable with data from the database.
 		clickCounter = snapshot.val().clickCount;
 
 	// If there is an error that Firebase runs into -- it will be stored in the "errorObject"
-	// Again we could have named errorObject anything we wanted. 
+	// Again we could have named errorObject anything we wanted.
 	}, function (errorObject) {
 
 		// In case of error this will print the error
 	  	console.log("The read failed: " + errorObject.code);
-	
+
 	});
+
+	var myObject = {
+		myName: 'Matt',
+		myBirthdayMonth: 'May',
+		myAlertFunc: function(myAlert){
+			console.log(myAlert);
+		}
+	}
 
 	</script>
 
