@@ -14,7 +14,7 @@ client.stream('statuses/filter', {track: subject, lang: 'en'},  function(stream)
     console.log("@" + tweet.user.screen_name + " ::: " + tweet.text);
     console.log('****');
   });
-
+  //BULLSHIT POSH, SORRY GITHUB!
   stream.on('error', function(error) {
     console.log(error);
   });
