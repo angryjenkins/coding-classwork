@@ -30,7 +30,6 @@ var prompt = require('prompt');
 prompt.start();
 
 prompt.get(['name', 'gender','grade','gpa','detentions','sleepingInClass','catchPhrase'], function (err, result) {
-  //
   // Log the results.
 
   for(var key in result){
