@@ -1,0 +1,8 @@
+
+1. make a mysql db
+
+2. create a table of candies with two columns: name, rating
+
+3. insert 3 candies in
+
+4. select all of them 
