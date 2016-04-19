@@ -1,5 +1,4 @@
-CREATE DATABASE doctors;
-USE doctors;
+USE day36_doctors;
 
 CREATE TABLE `doctors` (
  `doctor_id` mediumint(9) NOT NULL AUTO_INCREMENT,

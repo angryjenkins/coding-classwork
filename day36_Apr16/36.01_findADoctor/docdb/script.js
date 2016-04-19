@@ -7,8 +7,10 @@ function getByZipAndDistance(zipcode,miles,callback){
     host     : 'localhost',
     user     : 'root',
     password : '04051997',
-    database : 'doctors'
+    database : 'day36_doctors'
   });
+
+  var zip = process.argv[2];
 
   connection.connect(function(err){
     if (err) {throw err};
@@ -16,7 +18,7 @@ function getByZipAndDistance(zipcode,miles,callback){
     console.log('connected!');
   });
 
-  connection.query("SELECT * FROM doctors.zip where zip='" + zipcode + "'", function (err, rows) {
+  connection.query("SELECT * FROM day36_doctors.zip where zip='" + zipcode + "'", function (err, rows) {
       if (err) {
           return callback(err);
       }
@@ -41,5 +43,6 @@ getByZipAndDistance(myZip, miles, function (err, result) {
   }
   else {
       console.log(result);
+      console.log('replace this with geo result stuff -- see slack!s');
   }
 });

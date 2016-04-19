@@ -14,7 +14,7 @@ Steps
 
 + Create the Database.
 + Create doctors table using script (huge table!)
-+ Create a new table for zup codes.
++ Create a new table for zip codes.
 
 IN GROUPS:
 
