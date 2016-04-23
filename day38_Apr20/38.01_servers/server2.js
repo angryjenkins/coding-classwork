@@ -95,7 +95,6 @@ app.get('/search', function(req, res) {
 
 app.post('/search/:name',function(req,res){
 	console.log(req.body);
-	res.send(res.body);
 	res.end();
 })
 

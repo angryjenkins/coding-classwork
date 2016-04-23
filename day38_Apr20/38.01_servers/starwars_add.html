@@ -41,8 +41,8 @@
 </body>
 <script type="text/javascript">
 	function getFromApi(name){
-		var url = 'http://localhost:3000/add';
-		$.ajax({url: url, method: 'POST'})
+		var url = 'http://localhost:3000/';
+		$.ajax({url: url, method: 'GET'})
 		.done(function(response) {
 			console.log('inside!!!');
 			$('#charName').html(response.name);
