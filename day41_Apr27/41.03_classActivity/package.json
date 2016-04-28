@@ -1,0 +1,16 @@
+{
+  "name": "mattsapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mattsApp.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mysql": "^2.10.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "m. nathaniel martin",
+  "license": "ISC"
+}

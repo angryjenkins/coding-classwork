@@ -1,0 +1,16 @@
+{
+  "name": "matts_calculator",
+  "version": "1.0.0",
+  "description": "calculator activity 4/27",
+  "main": "calculator.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
