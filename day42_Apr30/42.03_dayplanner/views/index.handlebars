@@ -1,0 +1,23 @@
+<h1>Day planner</h1>
+<h3>Make a plan change it!</h3>
+<div> 	
+  {{#each col}}
+	<div>
+		<pre>{{this.id}}. {{this.plan}}</pre>
+	</div>
+  {{/each}}
+</div>
+
+<div>
+	<form method="POST" action="/update?_method=PUT" class="button-size">
+		<textarea class="form-control" type="text" name="user_plan"></textarea>
+		<button type="submit">Change it!</button>
+	</form>
+	<p>Write down what you want to change Click the "Submit" button.</p>
+</div>
+<div>
+	<form method="POST" action="/delete?_method=DELETE" class="button-size">
+		<button type="submit">Delete!</button>
+	</form>
+	<p>Or delete it by Clicking the "Delete" button.</p>	
+</div>
