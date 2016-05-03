@@ -1,0 +1,24 @@
+<h1>Feel State!</h1>
+<h3>Record how the room feels, and when you felt it!</h3>
+<div> 	
+  {{#each viewData}}
+	<div>
+		<pre>{{this.id}}. {{this.state}} {{this.date}}</pre>
+	</div>
+  {{/each}}
+</div>
+
+<div>
+	<form action="/createHot" method="POST">
+		<input input type="hidden" type="text"><br>
+		<button type="submit" class="btn btn-default">Too Hot!</button>
+	</form>
+	<form action="/createCold" method="POST">
+		<input input type="hidden" type="text"><br>
+		<button type="submit" class="btn btn-default">Too Cold!</button>
+	</form>
+	<form action="/createRight" method="POST">
+		<input input type="hidden" type="text"><br>
+		<button type="submit" class="btn btn-default">Just right!</button>
+	</form>
+</div>

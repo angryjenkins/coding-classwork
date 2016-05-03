@@ -1,0 +1,132 @@
+Building a Basic App with Node and Express 
+
+Express Part 1, serving files in response to GET requests
+
+
+
+
+
+Let’s build an app using Express, and let’s keep it basic. We’ll create an HTTP server. It will handle both GET and POST requests. 
+First things first: the server. Here we build a server using node’s http module. (We’re not using Express yet.) We require the http module and saved it to a variable we’ll called http.
+
+var http = require(‘http’);
+
+Then we used http’s createServer function.
+
+var server = 
+http.createServer(function (req, res) {
+	res.writeHead(200, {‘Content-Type’:’text/html’});
+	res.end(‘<h1>Hi sup?</h1>’);
+});
+
+That’s our server. Let’s start it listening on port 3000, and console log an indication of our listening server.
+
+server.listen(3000);
+console.log(‘server listening on 3000’);
+
+Great, now let’s do the same thing using Express.
+
+//npm install express and require it 
+var express = require(‘express’);
+
+//save an instance of an express server to a variable…
+var app = express();
+
+//…and then set it listening on port 3000
+app.listen(3000, function () {
+	console.log(‘server listening on 3000);
+});
+
+
+Okay, cool. But now let’s do some routing, so:
+
+var express = require(‘express’);
+var app = express();
+
+//ADDED LINES/////////////////////////////////////////////// 
+//add two routes so that our server can handle GET requests
+app.get(‘/’, function (req, res) {
+	res.send(‘<h1>Hey sup?</h1>’);
+});
+app.get(‘/banana’, function (req, res) {
+	res.send(‘<h1>I am a banana.</h1>’);
+});
+////////////////////////////////////////////////////////////
+
+app.listen(3000, function () {
+	console.log(‘server listening on 3000);
+});
+
+
+Yassssss, but we probably don’t want to write billions of lines of html directly in our Express routing code. Create an html file, call it about.html and put whatever you want in there, and then save it in the directory in which you’re working. Now go ahead and change the res.send(‘<h1>Hey sup?</h1>’) line to the following:
+
+res.sendFile(‘about.html’);
+
+
+If you want, create a second html file and do this for the second of our routes as well:
+
+var express = require(‘express’);
+var app = express();
+
+app.get(‘/’, function (req, res) {
+	res.sendFile(‘about.html’);
+});
+
+app.get(‘/banana’, function (req, res) {
+	res.sendFile(‘banana.html’);
+});
+
+app.listen(3000, function () {
+	console.log(‘server listening on 3000);
+});
+
+
+If you try to run this you’ll discover some funny business. We get an error indicating that the path must be absolute. In other words, simply identifying our file as ‘about.html’ won’t cut it. We’ll use node’s path module to help us deal with paths, so let’s require it up at the top of our code:
+
+var path = require(‘path’);
+
+
+Now the absolute path to the directory in which we are working is accessible from our code by __dirname. Once we have that path, we can tack on the name of the specific file inside that directory in which we are interested. Check out the changes:
+
+var path = require(‘path’); //we require the path functionality
+var express = require(‘express’);
+var app = express();
+
+app.get(‘/’, function (req, res) {
+
+	//we use the join function to construct an absolute path to our file
+	res.sendFile(path.join(__dirname, ‘about.html’));
+});
+
+app.get(‘/banana’, function (req, res) {
+
+	//we use the join function to construct an absolute path to our file
+	res.sendFile(path.join(__dirname, ‘banana.html’));
+});
+
+app.listen(3000, function () {
+	console.log(‘server listening on 3000);
+});
+
+
+Now hit port 3000 from the browser. You should see your pages rendered. You could repeat this routing process for a hundred different pages and cobble together a website. Do you like writing the same code a hundred times? If so, great job! You can stop now. Go write a hundred routes, you lunatic. If not, let’s try this another way. First, create a folder called ‘public’ within your directory and throw your static html files in there. Second, get rid of your routing code. Third, do this:
+
+var path = require(‘path’); //we require the path functionality
+var express = require(‘express’);
+var app = express();
+
+//this line replaces all our previous routing code
+app.use(express.static(path.join(__dirname, ‘public’)));
+
+app.listen(3000, function () {
+	console.log(‘server listening on 3000);
+});
+
+
+Run your server and hit port 3000 in the browser, noting that the paths should now be identical to the names of the files in your public folder. For example, localhost:3000/bananas.html
+
+Add as many files as you fancy, it’ll work. 
+
+
+
+

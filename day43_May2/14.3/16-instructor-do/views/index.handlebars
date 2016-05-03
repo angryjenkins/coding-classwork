@@ -1,0 +1,9 @@
+<h1>All of our data from the things table that have states</h1>
+
+<div> 	
+  {{#each data}}
+  	{{#if this.state}}
+		<pre>{{this.name}}</pre>
+	{{/if}}
+  {{/each}}
+</div>

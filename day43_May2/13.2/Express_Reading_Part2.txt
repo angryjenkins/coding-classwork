@@ -1,0 +1,177 @@
+Building a Basic App with Node and Express 
+
+Express Part 2
+
+Let’s take a step back and discover how to use node (no Express) to serve static files as well as JSON. Tools like Express are great, they make life easier. However, I think it’s nice to see explicitly just how much work they’re saving us, and it’s also nice to know that you’re choosing a tool because it saves you time, because it offers convenient common methods, or because you know it’s been community-tested, and not because you don’t know how to get on without it. 
+
+2.1 Serving static html files with node
+
+ We reviewed setting up a server at the start of Part 1. This time around, we’ll need the fs node module, so:
+
+var http = require(“http”);
+var fs = require(“fs”); //requiring the file system module, fs
+var path = require(“path”);
+
+Now below I’ll create a server instance, but note that I don’t declare a variable for it, and I simply ‘chain’ the .listen() function directly onto the end. Also note the new format of the string being logged, which uses back ticks (check under the esc button on your keyboard) instead of quotation marks and ${variableName} notation to plug the variable’s value right into the string. (The effect is the same. I’m mixing it up just for the sake of making these notes more useful.)
+
+http.createServer(function (req, res) {
+
+	//logging the method and the url by referencing req right in the string
+	console.log(`server receiving ${req.method} request for ${req.url}’);
+
+	//doing some basic routing 
+	//if the path is /bananas, node will read the contents of the bananas.html
+	//those contents will be available via the data parameter inside the callback
+	if (req.url === “/bananas”) {
+		fs.readFile(“./public/bananas.html”, “UTF-8”, function (err, data) {
+
+			//200 means success	
+			res.writeHead(200, {“Content-Type”: “text/html”});
+
+			//send off the html content we read in from bananas.html
+			res.end(data);
+		})
+	}
+}).listen(3000); //start the server listening on port 3000
+console.log(“server listening on 3000”);
+
+Okay, that’s fine. But what if our bananas.html had in it a link to a file called, for example, bananaStyles.css, a stylesheet? You would see a GET request logged to console not only for /bananas.html, but also for /bananaStyles.css. Unfortunately you’d be out of luck, since there exists no route for handling such a request. You could handle this obstacle by writing another if statement, with code to be executed when the condition that req.url === /bananaStyles.css obtains. And of course this holds for any other jazz your html file demands, for example, image files. You could also include an else statement at the end, to return a 404 in the event that the path requested is not handled by any of your routes:
+
+var http = require(“http”);
+var fs = require(“fs”); //requiring the file system module, fs
+var path = require(“path”);
+
+http.createServer(function (req, res) {
+
+	console.log(`server receiving ${req.method} request for ${req.url}’);
+
+	if (req.url === “/bananas”) {
+		fs.readFile(“./public/bananas.html”, “UTF-8”, function (err, data) {
+
+			res.writeHead(200, {“Content-Type”: “text/html”});
+			res.end(data);
+		})
+	}
+
+	else if (req.url === “/bananaStyles.css”) {
+		//code to handle this goes here
+	}
+
+	else {
+		//code to handle unmatched path
+		res.writeHead(404, {“Content-Type”: “text/plain”});
+		res.end(“I have no idea what you want, but I ain’t got it.”);
+	}
+
+}).listen(3000); //start the server listening on port 3000
+console.log(“server listening on 3000”);
+
+
+
+2.2 JSON with node
+
+We start with some JSON.
+
+var JSONData = [
+	{
+	firstName: “Ahmed”, 
+	lastName: “Haque”
+	},
+	{
+	firstName: “Peter”,
+	lastName: “Tumulty”
+	},
+	{
+	firstName: “Allen”,
+	lastName: “RabbitWhisperer”
+	}
+];
+
+Yes, I’m a liar. I said this was JSON. This is actually a JavaScript array of POJOs, or Plain Old Javascript Objects. Strictly speaking, JSON format specifies that keys must be strings, so let me try again:
+
+var JSONData = [
+	{
+	“firstName”: “Ahmed”, 
+	“lastName”: “Haque”
+	},
+	{
+	“firstName”: “Peter”,
+	“lastName”: “Tumulty”
+	},
+	{
+	“firstName”: “Allen”,
+	“lastName”: “RabbitWhisperer”
+	}
+];
+
+Okay, cool. Let’s serve some JSON data.
+
+var http = require(“http”);
+var JSONData = [
+	{
+	“firstName”: “Ahmed”, 
+	“lastName”: “Haque”
+	},
+	{
+	“firstName”: “Peter”,
+	“lastName”: “Tumulty”
+	},
+	{
+	“firstName”: “Allen”,
+	“lastName”: “RabbitWhisperer”
+	}
+];
+
+http.createServer(function (req, res) {
+
+	//specify in the header that the content type is json
+	res.writeHead(200, {“Content-Type”:”text/json”});
+	res.end(JSON.stringify(JSONData));
+}).listen(3000, function () {
+	console.log(“listening on 3000”);
+});
+
+Turn on your in-browser JSON extension, hit port 3000 from the browser, and behold! 
+
+But now suppose the user only wants data for one person, how should we proceed? First, we’ll need to determine whose data is being requested. Second, we’ll need to filter the data to find that individual. Let’s combine routing and serving JSON:
+
+var http = require(“http”);
+var JSONData = [
+	{
+	“firstName”: “Ahmed”, 
+	“lastName”: “Haque”
+	},
+	{
+	“firstName”: “Peter”,
+	“lastName”: “Tumulty”
+	},
+	{
+	“firstName”: “Allen”,
+	“lastName”: “RabbitWhisperer”
+	}
+];
+
+http.createServer(function (req, res) {
+
+	//we can write the header up here, since it will always be json
+	res.writeHead(200, {“Content-Type”:”text/json”});
+
+	if (req.url === “/Allen”) {
+
+		//I will use the array function ‘filter’ 
+		//the function passed in will apply its condition to every element
+		//in the JSONData array, returning those items that pass the 
+		//condition into a new array which we’re calling ‘allen’
+		var allen = JSONData.filter(function (item) {
+			return item.firstName === “Allen”;
+		});
+		res.end(JSON.stringify(allen));
+	}
+
+	//code to handle the other names would go here
+	
+}).listen(3000, function () {
+	console.log(“listening on 3000”);
+});
+
+Now start up the server and hit localhost:3000/Allen. Congratulations, you have yourself an API that returns JSON. Of course you will not want to route every possible name separately, using a million if statements. It would be wiser to parse the URL, and then grab the name to be used in your data filter. You could then pass that name, as well as the response object, to another function altogether, a function that will contain the data filter code and that will end the response by sending the appropriate info. Here the concept is more important than the implementation, since we’ll be using Express for this in the next part, but if you feel like coding now now now feel free to try that as an exercise. 
