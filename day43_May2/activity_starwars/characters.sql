@@ -7,6 +7,7 @@ CREATE TABLE `starwars`.`characters` (
   `role` VARCHAR(60) NOT NULL,
   `age` INT NOT NULL,
   `forcePoints` INT NOT NULL,
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`id`)
+);
 
 LOAD DATA LOCAL INFILE 'starwars.csv' INTO TABLE characters;
