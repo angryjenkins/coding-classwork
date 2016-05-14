@@ -9,8 +9,7 @@ var bodyParser 	= require('body-parser');
 
 
 
-
-// Sets up the Express App
+// Sets up thtouch server.e Express App
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;

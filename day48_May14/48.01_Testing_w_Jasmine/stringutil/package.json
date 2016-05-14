@@ -1,0 +1,11 @@
+{
+  "name": "stringutl",
+  "version": "1.0.0",
+  "description": "intro to testing jasmine",
+  "main": "stringMan.js",
+  "scripts": {
+    "test": "jasmine-node spec --autotest"
+  },
+  "author": "",
+  "license": "ISC"
+}
