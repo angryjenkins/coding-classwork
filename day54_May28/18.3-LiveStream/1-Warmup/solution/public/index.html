@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="wrapper">
+    <h1>Book Tracker 4000</h1>
+    <h2><i>The latest and greatest in book tracking technology!</i></h2>
+    
+    <!-- Form for Handling Inputs -->
+    <form id="userinput">
+        <input type="text" id="title" placeholder="Book Title"/>
+      <br />
+        <input type="text" id="author" placeholder="Book Author"/>
+      <br />
+      <button type="submit" id="addbook">Add New</button>
+    </form>
+
+    <!-- Results -->
+    <div id="results">
+      <table id="unread">
+            <tr><th>Title</th><th>Author</th><th>Read/Unread</th></tr>
+      </table>
+      <table id="read">
+            <tr><th>Title</th><th>Author</th><th>Read/Unread</th></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- jQuery Scripts -->
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+
+  <!-- App.js handles the on-click events and AJAX calls to our API -->
+  <script src="app.js"></script>
+</body>
+</html>
