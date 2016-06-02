@@ -1,0 +1,23 @@
+1. Talk about Code Camp
+
+2. Talk about freelance opportunities
+
+3. Talk about hackathon
+
+4. Talk about Nalani - reach out.
+
+5. Recap where we've been through. Specifically start at this MVC Paradigm. How we've cleanly separated the DB, from our API backend, and our frontend. Just because we're using MongoDB this paradigm is still very much present.
+
+6. Re-introduce MongoDB. Talk about how it allows us to build document oriented data. This can be useful because we can have heterogeneous formats. And its also nice because it's basically JSONs. And that's kind of handy... when we start having documents with deep nesting.
+
+7. We then introduced mongojs which was an ORM to make things a bit easier. So we had a way to communicate with MongoDB via Node. This is effectively a "driver". 
+
+8. MongoJS is pretty slick. It lets us do a lot of things. But what it doesn't do is give us a "schema". Now define a schema real fast. Sequelize Schema example (it spelled it out.). Schemas can be very important because it ensures that the data in our code matches exactly with the data in our database. Schemas can also be very important because we can place safeguards on what can be injected into the database.  (like password length, type, etc.)
+
+9. Now... I know most people think MongoDB is super useful beacuse it can be heterogeneous and unchained. And doesn't need a schema -- but really this can be a huge headache as well. Schemas are useful. That's why people use them. 
+
+10. This is where Mongoose comes in and what we'll be doing today. Mongoose is effectively an ODM that does a bit more than our and sort of behaves more like Sequelize. It also has a few "handy" features that we'll talk about as well. 
+
+-------------------------------------------------------------
+
+

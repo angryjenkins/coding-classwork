@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  input{
+    display: block;
+    font-size: 24px;
+    height:36px;
+    width:200px;
+  }
+  textarea{
+    width:200px;
+    height:200px;
+  }
+  </style>
+</head>
+<body>
+  <form action="/submit" method="post">
+    <input type="text" name="title" placeholder="Title">
+    <textarea type="text" name="body">Write Note Here</textarea>
+
+    <input type="submit">
+  </form>
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
