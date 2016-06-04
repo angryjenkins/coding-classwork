@@ -11,7 +11,6 @@ var Main = React.createClass({
 		/*This is because the "home.js" file is inside of the main component*/
 
 		return (
-
 			<div className="main-container">
 				<nav className="navbar navbar-default" role="navigation">
 					<div className="col-sm-7 col-sm-offset-2" style={{marginTop: 15}}>
