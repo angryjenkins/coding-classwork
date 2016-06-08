@@ -4,7 +4,7 @@ $('#addItem').click(addTask);
 //wen pressing enter
 $('input').keypress(function(event){
 	if(event.which == 13){
-		addTask();
+		addTask()
 	}
 });
 
