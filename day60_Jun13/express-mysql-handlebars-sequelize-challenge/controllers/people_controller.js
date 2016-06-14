@@ -23,8 +23,4 @@ router.post('/create', function(req, res) {
   });
 });
 
-
-
-  
-
 module.exports = router;
