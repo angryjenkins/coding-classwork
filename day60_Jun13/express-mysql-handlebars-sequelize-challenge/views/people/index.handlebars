@@ -1,0 +1,43 @@
+<h1>Project Management Tool</h1>
+
+<h2>Create a new person</h2>
+
+{{#if logged_in}}
+  <form action="/people/create" method="POST">
+    <input type="text" name="name">
+
+    <input type="submit">
+  </form>
+{{/if}}
+
+{{#unless logged_in}}
+  <p>
+    You must login to add a person.
+  </p>
+{{/unless}}
+
+<h2>People</h2>
+
+<ul>
+  {{#each people}}
+    <li>
+      <a href="/people/{{this.id}}">{{this.name}}</a> - <a href="/delete/{{this.id}}" class="button delete">delele</a>
+      <ul>
+        {{#if ../logged_in}}
+          <li>
+            <form action="/people/{{this.id}}/tasks/create" method="POST" style="display: inline">
+              <input type="text" name="task" placeholder="add task here">
+              <input type="submit" value"assign task">
+            </form>
+          </li>
+        {{/if}}
+
+        {{#each this.Tasks }}
+          <li>
+            {{this.task}} </a> - <a href="/delete/{{this.id}}" class="button delete">delele</a>
+          </li>
+        {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+</ul>

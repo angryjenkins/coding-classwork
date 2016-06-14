@@ -9,7 +9,6 @@ module.exports = {
 	},
 
 
-	// This will be what we do
 	module: {
 		loaders: [
 			{

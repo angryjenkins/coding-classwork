@@ -28,7 +28,7 @@ module.exports = (
 	<Route path="/" component={Main}>
 
 		{/* If user selects the profile path... we get the Profile component*/}
-		<Route ='/' component={Query} />
+		<Route path='/' component={Query} />
 
 		{/*If user selects any other path... we get the Home Route*/}
 		<IndexRoute component={Home} />
