@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/test', function(req, res) {
-  res.json(req);
+  res.json(req.body);
 });
 
 module.exports = router;
