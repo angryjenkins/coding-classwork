@@ -7,7 +7,8 @@ var source = {
         port: 3306,
         host: 'localhost',
         user: 'root',
-        database: "hotrest"
+        password: '04051997',
+        database: "hotRest"
     },
 
 }
