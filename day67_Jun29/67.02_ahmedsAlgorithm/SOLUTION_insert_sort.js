@@ -55,7 +55,7 @@ function insertionSort(items) {
 //================================================
 
 console.log("PRE-SORT");
-console.log(arr.join(","));
+console.log(arr).join(",");
 console.log("---------------------------")
 console.log("POST-SORT");
-console.log(insertionSort(arr.join(" ")));    
+console.log(insertionSort(arr).join(" "));    
